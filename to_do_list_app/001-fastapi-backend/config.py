@@ -1,6 +1,7 @@
 from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
+    DATABASE_URL: str
     DATABASE_HOST: str
     DATABASE_NAME: str
     DATABASE_USER: str
