@@ -19,12 +19,16 @@ export default function ToDoList() {
   async function fetchTodos(completed) {
     let path = '/todos'
     if (completed !== undefined) {
-      path = `todos?completed=${completed}`
+        path = `/todos?completed=${completed}`
     }
-    const res = await fetch(process.env.NEXT_PUBLIC_API_URL + path)
+    // Asegúrate de que no haya barra adicional al construir la URL
+    const url = `${process.env.NEXT_PUBLIC_API_URL}${path}`
+    console.log("Fetching URL:", url); // Agrega esta línea para depuración
+    const res = await fetch(url)
     const json = await res.json()
     setTodos(json)
-  }
+}
+
 
   const debouncedUpdateTodo = useCallback(debounce(updateTodo, 500), [])
 
