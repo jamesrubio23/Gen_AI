@@ -16,6 +16,19 @@ export default function ToDoList() {
     }
   }, [])
 
+  /*
+  NO FUNCIONA HAY QUE CAMBIAR POR const url = `${process.env.NEXT_PUBLIC_API_URL}${path}`
+  async function fetchTodos(completed) {
+    let path = '/todos'
+    if (completed !== undefined) {
+      path = `/todos?completed=${completed}`
+    }
+    const res = await fetch(process.env.NEXT_PUBLIC_API_URL + path)
+    const json = await res.json()
+    setTodos(json)
+  }
+    */
+
   async function fetchTodos(completed) {
     let path = '/todos'
     if (completed !== undefined) {
