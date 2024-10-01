@@ -19,7 +19,7 @@ export default function ToDoList() {
   async function fetchTodos(completed) {
     let path = '/todos'
     if (completed !== undefined) {
-      path = `/todos?completed=${completed}`
+      path = `todos?completed=${completed}`
     }
     const res = await fetch(process.env.NEXT_PUBLIC_API_URL + path)
     const json = await res.json()
