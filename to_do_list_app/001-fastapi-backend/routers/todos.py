@@ -2,6 +2,7 @@ from typing import List
 from sqlalchemy.orm import Session
 from fastapi import APIRouter, Depends, HTTPException, status
 import schemas
+import models
 import crud
 from database import SessionLocal
 
@@ -33,12 +34,22 @@ def get_todo_by_id(id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="to do not found")
     return todo
 
+"""
 @router.put("/{id}")
 def update_todo(id: int, todo: schemas.ToDoRequest, db: Session = Depends(get_db)):
     todo = crud.update_todo(db, id, todo)
     if todo is None:
         raise HTTPException(status_code=404, detail="to do not found")
     return todo
+"""
+
+@router.put("/{id}", response_model=schemas.ToDoResponse)
+def update_todo(id: int, todo: schemas.ToDoRequest, db: Session = Depends(get_db)):
+    updated_todo = crud.update_todo(db, id, todo)
+    if updated_todo is None:
+        raise HTTPException(status_code=404, detail="to do not found")
+    return updated_todo  # Retorna el objeto actualizado que cumple con ToDoResponse
+
 
 @router.delete("/{id}", status_code=status.HTTP_200_OK)
 def delete_todo(id: int, db: Session = Depends(get_db)):

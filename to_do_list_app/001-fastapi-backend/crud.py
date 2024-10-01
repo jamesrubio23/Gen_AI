@@ -17,6 +17,8 @@ def read_todos(db: Session, completed: bool):
 def read_todo(db: Session, id: int):
     return db.query(models.ToDo).filter(models.ToDo.id == id).first()
 
+
+"""
 def update_todo(db: Session, id: int, todo: schemas.ToDoRequest):
     db_todo = db.query(models.ToDo).filter(models.ToDo.id == id).first()
     if db_todo is None:
@@ -25,6 +27,17 @@ def update_todo(db: Session, id: int, todo: schemas.ToDoRequest):
     db.commit()
     db.refresh(db_todo)
     return db_todo
+"""
+def update_todo(db: Session, id: int, todo: schemas.ToDoRequest):
+    db_todo = db.query(models.ToDo).filter(models.ToDo.id == id).first()
+    if db_todo is None:
+        return None
+    # Actualiza los campos del objeto db_todo directamente
+    db_todo.name = todo.name
+    db_todo.completed = todo.completed
+    db.commit()
+    db.refresh(db_todo)  # Actualiza el objeto db_todo para reflejar los cambios en la base de datos
+    return db_todo  # Retorna el objeto actualizado
 
 def delete_todo(db: Session, id: int):
     db_todo = db.query(models.ToDo).filter(models.ToDo.id == id).first()
