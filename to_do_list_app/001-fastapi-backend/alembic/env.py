@@ -6,6 +6,7 @@ from sqlalchemy import pool
 
 from alembic import context
 
+
 ## Parece que hay que añadir esas 2 lineas siguientes ##
 from dotenv import load_dotenv
 
