@@ -9,5 +9,5 @@
 3. Pdf App with AWS Storage (No Gen AI)
 - Upload Pdf App with the same logic as the second App but with pdfs are stored in an AWS S3 Bucket
 
-4. Pdf App with Langchain (Gen AI)
+4. RAG with Langsmith in Localhost
 - Pdf App with **AWS** Storage with **Langchain** as orchestation Framework connected to the **Open AI API**. Backend server deployed in **Render** and Frontend Server deployed in **Vercel**. Deployment in **Docker Cointainer** is available too.
