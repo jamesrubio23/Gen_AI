@@ -1,5 +1,7 @@
 # Full Stack Apps
 
+In every project there images that show the backend server and the frontend  if it exists.
+
 1.App
 - Using LlamaIndex Framework we download the code for a RAG connected with the API of Open AI and implemented my first deployment in Vercel
 
