@@ -11,5 +11,7 @@ In every project there images that show the backend server and the frontend  if 
 3. Pdf App with AWS Storage (No Gen AI)
 - Upload Pdf App with the same logic as the second App but with pdfs are stored in an AWS S3 Bucket
 
-4. RAG with Langsmith in Localhost
+4. Basic RAG with Langsmith in Localhost
 - Pdf App with **AWS** Storage with **Langchain** as orchestation Framework connected to the **Open AI API**. Backend server deployed in **Render** and Frontend Server deployed in **Vercel**. Deployment in **Docker Cointainer** is available too.
+
+5. RAG with Chat History and Multiquery
